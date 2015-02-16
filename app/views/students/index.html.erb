@@ -1,0 +1,22 @@
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th colspan="2" style="text-align: center">Action</th>
+  </tr>
+  <% @students.each do|student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.age %></td>
+        <td>
+          <%= link_to "Edit", edit_student_path(student), :class => 'btn btn-primary' %>
+        </td>
+        <td>
+          <%= link_to "Delete", student_url(student), :method => :delete, :class => 'btn btn-danger', :confirm => "Are you sure?" %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to "New Student", new_student_url, :class => "btn btn-primary" %>
